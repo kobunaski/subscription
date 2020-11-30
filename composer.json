@@ -1,0 +1,46 @@
+{
+    "name": "giangvu2002/subscription",
+    "description": "this is a plugin used for subscribing email ",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "subscription"
+    ],
+    "support": {
+        "docs": "https://github.com/kobunaski/subscription/blob/master/README.md",
+        "issues": "https://github.com/kobunaski/subscription/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kobu",
+            "homepage": "kobu.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "kobu\\subscription\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "subscription",
+        "handle": "subscription",
+        "developer": "Kobu",
+        "developerUrl": "kobu.com",
+        "documentationUrl": "https://github.com/kobunaski/subscription/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/kobunaski/subscription/master/CHANGELOG.md",
+        "class": "kobu\\subscription\\Subscription"
+    }
+}
