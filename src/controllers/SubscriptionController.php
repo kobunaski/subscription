@@ -60,7 +60,7 @@ class SubscriptionController extends Controller
      */
     public function actionIndex()
     {
-        $subscriptions = Subscription::find()->orderBy("id")->all();
+        $subscriptions = RecordsSubscription::find()->orderBy("id")->all();
         // $subscriptionsList['email'] = ['email', 'klsajdlfk'];
         // return Json::encode($subscriptionsList);
         // Craft::dd($subscriptions);
