@@ -64,7 +64,7 @@ class SubscriptionController extends Controller
         // $subscriptionsList['email'] = ['email', 'klsajdlfk'];
         // return Json::encode($subscriptionsList);
         // Craft::dd($subscriptions);
-        $this->renderTemplate('subscription-module/subscription/index', ['subscriptions' => $subscriptions]);
+        $this->renderTemplate('subscription/email-subscription', ['subscriptions' => $subscriptions]);
     }
 
     /**

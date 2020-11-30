@@ -2,7 +2,7 @@
     "name": "kobunaski/subscription",
     "description": "this is a plugin used for subscribing email ",
     "type": "craft-plugin",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "keywords": [
         "craft",
         "cms",
