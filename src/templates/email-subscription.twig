@@ -1,46 +1,22 @@
-{# @var craft \craft\web\twig\variables\CraftVariable #}
-{#
-/**
- * subscription plugin for Craft CMS 3.x
- *
- * subscription index.twig
- *
- * @author    Kobu
- * @copyright Copyright (c) 2020 Kobu
- * @link      kobu.com
- * @package   Subscription
- * @since     1.0.0
- */
-#}
-
 {% extends "_layouts/cp" %}
-{% import "_includes/forms" as forms %}
 
-{% do view.registerAssetBundle("kobu\\subscription\\assetbundles\\subscription\\SubscriptionAsset") %}
-{% do view.registerAssetBundle("kobu\\subscription\\assetbundles\\emailsubscriptioncpsection\\EmailSubscriptionCPSectionAsset") %}
+{% set title = "Email Subscriptions" %}
 
-{# Link for the ? icon at the bottom of the page #}
-{% set docsUrl = "https://github.com/kobunaski/subscription/blob/master/README.md" %}
-
-{# The title of this CP section #}
-{% set title = "subscription" %}
-
-{# The URL to this plugin's base CP section #}
-{% set pluginCpUrl = url('subscription') %}
-
-{# Get a URL to an image in our AssetBundle #}
-{% set iconUrl = view.getAssetManager().getPublishedUrl('@kobu/subscription/assetbundles/emailsubscriptioncpsection/dist', true) ~ '/img/EmailSubscription-icon.svg' %}
-
-{# Content that should appear in the page header#}
-{% set extraPageHeaderHtml %}
-    <div class="buttons">
-        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('subscription') }}</a>
-    </div>
-{% endset %}
-
-{# The content of the CP Section#}
 {% set content %}
-    <h2>{{ "EmailSubscription CP Section body goes here"|t('subscription') }}</h2>
-    <img src="{{ iconUrl }}" height="64" width="64" />
-    <p class="textline"></p>
+<table id="signups-table">
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>Added</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for subscription in subscriptions %}
+			<tr>
+				<td>{{subscription.email}}</td>
+				<td>{{subscription.dateCreated}}</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</div>
 {% endset %}

@@ -99,7 +99,16 @@ class Subscription extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['subscription'] = 'subscription/subscription/do-something';
+                $event->rules['subscription'] = 'subscription/subscription/index';
+            }
+        );
+
+        // Register our site routes
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['subscribe'] = 'subscription/subscription/subscribe';
             }
         );
 

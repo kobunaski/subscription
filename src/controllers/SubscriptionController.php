@@ -14,6 +14,7 @@ use kobu\subscription\Subscription;
 
 use Craft;
 use craft\web\Controller;
+use kobu\subscription\records\Subscription as RecordsSubscription;
 
 /**
  * Subscription Controller
@@ -46,7 +47,7 @@ class SubscriptionController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['index', 'do-something'];
+    protected $allowAnonymous = ['index', 'subscribe'];
 
     // Public Methods
     // =========================================================================
@@ -59,9 +60,11 @@ class SubscriptionController extends Controller
      */
     public function actionIndex()
     {
-        $result = 'Welcome to the SubscriptionController actionIndex() method';
-
-        return $result;
+        $subscriptions = Subscription::find()->orderBy("id")->all();
+        // $subscriptionsList['email'] = ['email', 'klsajdlfk'];
+        // return Json::encode($subscriptionsList);
+        // Craft::dd($subscriptions);
+        $this->renderTemplate('subscription-module/subscription/index', ['subscriptions' => $subscriptions]);
     }
 
     /**
@@ -70,10 +73,18 @@ class SubscriptionController extends Controller
      *
      * @return mixed
      */
-    public function actionDoSomething()
-    {
-        $result = 'Welcome to the SubscriptionController actionDoSomething() method';
 
-        return $result;
+    public function actionSubscribe()
+    {
+        //Storing a new mailing list signup
+        $this->requirePostRequest();
+        $request = Craft::$app->getRequest();
+        $email = $request->getParam('email');
+
+        $subscription = new RecordsSubscription();
+        $subscription->email = $email;
+        $subscription->save();
+
+        $this->renderTemplate('subscription/index');
     }
 }
