@@ -81,10 +81,12 @@ class SubscriptionController extends Controller
         $request = Craft::$app->getRequest();
         $email = $request->getParam('email');
 
-        $subscription = new RecordsSubscription();
-        $subscription->email = $email;
-        $subscription->save();
-
+        if (!RecordsSubscription::find()->where(['email' => $email])) {
+            $subscription = new RecordsSubscription();
+            $subscription->email = $email;
+            $subscription->save();
+        }
+        
         Craft::$app->session->setFlash('success', "Success Subscribed");
         return $this->redirect(Craft::$app->getRequest()->referrer);
     }
