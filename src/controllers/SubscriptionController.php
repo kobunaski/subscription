@@ -85,6 +85,7 @@ class SubscriptionController extends Controller
         $subscription->email = $email;
         $subscription->save();
 
+        Craft::$app->session->setFlash('success', "Success Subscribed");
         return $this->redirect(Craft::$app->getRequest()->referrer);
     }
 }
