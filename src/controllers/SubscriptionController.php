@@ -85,6 +85,6 @@ class SubscriptionController extends Controller
         $subscription->email = $email;
         $subscription->save();
 
-        $this->redirect('index', ['success' => 'Subscribed Success']);
+        return $this->redirect(['/'], ['success' => 'Subscribed Success']);
     }
 }
