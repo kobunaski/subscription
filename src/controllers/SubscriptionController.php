@@ -85,6 +85,6 @@ class SubscriptionController extends Controller
         $subscription->email = $email;
         $subscription->save();
 
-        $this->refresh();
+        return $this->redirect(Craft::$app->request->referrer ?: Craft::$app->homeUrl);
     }
 }
