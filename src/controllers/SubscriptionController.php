@@ -85,6 +85,6 @@ class SubscriptionController extends Controller
         $subscription->email = $email;
         $subscription->save();
 
-        $this->renderTemplate('index');
+        $this->refresh();
     }
 }

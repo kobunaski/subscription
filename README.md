@@ -31,8 +31,8 @@ To install the plugin, follow these instructions.
 -Insert text here-
 
 ## Using subscription
+To use the plugin, put this form in your twig file
 
-        ```twig
         <form method="post" action="subscribe" accept-charset="UTF-8">
                 {{ csrfInput() }}
 
@@ -43,7 +43,6 @@ To install the plugin, follow these instructions.
                 </div>
                 <input type="submit" value="Send" class="btn btn-dark">
         </form>
-        ```
 
 ## subscription Roadmap
 
