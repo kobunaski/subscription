@@ -85,7 +85,7 @@ class SubscriptionController extends Controller
         $subscription->email = $email;
         $subscription->save();
 
-        Craft::$app->user->setFlash('success', 'Everything went fine!');
+        Craft::$app->session->setFlash('success', "Subscribed Success");
         return $this->goBack();
     }
 }
